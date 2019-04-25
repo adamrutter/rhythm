@@ -4,7 +4,7 @@
   "description": "A stylesheet for easy typography rhythm",
   "main": "index.js",
   "scripts": {
-    "sass": "node-sass --watch --recursive --source-map true --output-style compressed src/rhythm.scss css/rhythm.css",
+    "sass": "node-sass --watch --recursive --source-map true --output-style compressed src/rhythm.scss css/rhythm.min.css",
     "server": "browser-sync start --server --files 'css/rhythm.min.css, index.html'",
     "start": "parallelshell 'npm run server' 'npm run sass'"
   },
