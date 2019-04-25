@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "sass": "node-sass --watch --recursive --source-map true --output-style compressed src/main.scss css/main.css",
+    "server": "browser-sync start --server --files 'css/main.min.css'",
+    "start": "parallelshell 'npm run server' 'npm run sass'"
   },
   "author": "Adam Rutter",
   "license": "GPL-3.0",
