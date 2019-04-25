@@ -9,7 +9,6 @@
   "author": "Adam Rutter",
   "license": "GPL-3.0",
   "devDependencies": {
-    "live-server": "^1.2.1",
     "node-sass": "^4.11.0",
     "stylelint": "^10.0.1",
     "stylelint-config-standard": "^18.3.0"
