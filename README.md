@@ -1,6 +1,6 @@
 # Rhythm
 
-Rhythm is a stylesheet that aims to provide easy-to-use typographical alignment to web developers.
+Rhythm is a (work-in-progress) stylesheet that aims to provide easy-to-use typographical alignment to web developers.
 
 ## Use
 
