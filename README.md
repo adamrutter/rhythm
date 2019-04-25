@@ -11,6 +11,7 @@ You can either link `css/rhythm.min.css` in your html, or preferably use `scss/r
 To install locally:
 
 * `git clone https://github.com/adamrutter/rhythm.git`
+* `cd rhythm`
 * `npm install`
 
 Three npm scripts are provided:
