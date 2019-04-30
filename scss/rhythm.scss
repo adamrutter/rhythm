@@ -36,3 +36,13 @@ body {
 
   @return $value;
 }
+//
+// Styling
+//
+
+// Global style rules
+* {
+  font-size: $base-size;
+  line-height: $base-line-height;
+  margin: $base-line-height 0;
+}
