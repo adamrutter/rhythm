@@ -50,3 +50,24 @@ body {
   line-height: $base-line-height;
   margin: $base-line-height 0;
 }
+
+// Headings (this styles headings 1 through 6)
+@for $i from 1 through 6 {
+  h#{$i} {
+
+    // Calculate the correct font size (as a variable first, so it can be reused later)
+    $size: round($base-size * pow($scale-ratio, abs($i - 7)));
+    font-size: $size;
+
+    // Calculate line height to the nearest multiple of HALF our base line height (elements can
+    // still fit our grid, but we won't have to deal with bad looking small font size/high line
+    // height combos; we'll add the half back using margin if we end up with a non-multiple of the
+    // whole line height) (Again, a variable so we can reuse it later)
+    $line-height: round(ceil($size / ($base-line-height / 2)) * ($base-line-height / 2));
+    line-height: $line-height;
+
+    // Headings should have more white space above them than below, remember the Gestalt principle
+    // of proximity
+    margin: $base-line-height * 3 0 $base-line-height * 1 0;
+  }
+}
