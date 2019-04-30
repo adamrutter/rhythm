@@ -11,7 +11,7 @@ $base-line-height: $base-size * 1.5;
 // The ratio by which we will scale sizing by
 $scale-ratio: 1.2;
 
-// A line-height grid (comment to disable)
+// A line-height grid (useful for design/development, comment to disable)
 body {
   background-image: linear-gradient(to bottom, rgba(0, 170, 255, 0.3) 1px, transparent 1px);
   background-position: left top;
