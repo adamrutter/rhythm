@@ -11,12 +11,27 @@ $base-line-height: $base-size * 1.5;
 // The ratio by which we will scale sizing by
 $scale-ratio: 1.2;
 
-// A line-height grid (useful for design/development, comment to disable)
+// Align to either full multiples of $base-line-height, or half multiples (whole will fit elements
+// to the grid exactly, half will also align to half-lines). Whole is preferable, but can sometimes
+// introduce bad looking small font-size/high line-height combos. You could also fix this using
+// ($base-line-height / 2) on problem elements in your own stylesheet, if using rhythm in your Sass
+// workflow
+$align-to-grid: 'whole';
+
+//
+// Grid
+//
+
 body {
   $grid-colour-1: rgba(0, 170, 255, 0.3);
   $grid-colour-2: rgba(0, 170, 255, 0.15);
-  // background-image: linear-gradient(to bottom, $grid-colour-1 1px, transparent 1px);
-  background-image: linear-gradient(to bottom, $grid-colour-1 1px, transparent 1px, transparent ($base-line-height / 2), $grid-colour-2 ($base-line-height / 2), transparent (round($base-line-height / 2) + 2), transparent $base-line-height);
+
+  @if $align-to-grid == 'whole' {
+    background-image: linear-gradient(to bottom, $grid-colour-1 1px, transparent 1px)
+  } @else if $align-to-grid == 'half' {
+    background-image: linear-gradient(to bottom, $grid-colour-1 1px, transparent 1px, transparent ($base-line-height / 2), $grid-colour-2 ($base-line-height / 2), transparent (round($base-line-height / 2) + 2), transparent $base-line-height);
+  }
+
   background-position: left top;
   background-repeat: repeat;
   background-size: 100% $base-line-height;
@@ -59,11 +74,14 @@ h1, h2, h3, h4, h5, h6, blockquote, dd, dl, dt, figcaption, figure, li, ol, p, u
     $size: round($base-size * pow($scale-ratio, abs($i - 7)));
     font-size: $size;
 
-    // Calculate line height to the nearest multiple of HALF our base line height (elements can
-    // still fit our grid, but we won't have to deal with bad looking small font size/high line
-    // height combos (Again, a variable so we can reuse it later)
-    $line-height: round(ceil($size / ($base-line-height / 2)) * ($base-line-height / 2));
-    line-height: $line-height;
+    // Calculate line height
+    @if $align-to-grid == 'whole' {
+      $line-height: round(ceil($size / $base-line-height) * $base-line-height);
+      line-height: $line-height;
+    } @else if $align-to-grid == 'half' {
+      $line-height: round(ceil($size / ($base-line-height / 2)) * ($base-line-height / 2));
+      line-height: $line-height;
+    }
 
     // Headings should have more white space above them than below, remember the Gestalt principle
     // of proximity
