@@ -16,9 +16,11 @@ $scale-ratio: 1.2;
 // introduce bad looking small font-size/high line-height combos. You could also fix this using
 // ($base-line-height / 2) on problem elements in your own stylesheet, if using rhythm in your Sass
 // workflow
+// String; 'whole' or 'half'
 $align-to-grid: 'half';
 
-// Enable the grid? (Boolean; true or false)
+// Enable the grid?
+// Boolean; true or false
 $grid-enabled: true;
 
 //
