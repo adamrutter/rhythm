@@ -27,7 +27,7 @@ body {
   $grid-colour-2: rgba(0, 170, 255, 0.15);
 
   @if $align-to-grid == 'whole' {
-    background-image: linear-gradient(to bottom, $grid-colour-1 1px, transparent 1px)
+    background-image: linear-gradient(to bottom, $grid-colour-1 1px, transparent 1px);
   } @else if $align-to-grid == 'half' {
     background-image: linear-gradient(to bottom, $grid-colour-1 1px, transparent 1px, transparent ($base-line-height / 2), $grid-colour-2 ($base-line-height / 2), transparent (round($base-line-height / 2) + 2), transparent $base-line-height);
   }
