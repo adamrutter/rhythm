@@ -12,10 +12,10 @@ $base-line-height: $base-size * 1.5;
 $scale-ratio: 1.2;
 
 // Align to either full multiples of $base-line-height, or half multiples (whole will fit elements
-// to the grid exactly, half will also align to half-lines). Whole is preferable, but can sometimes
-// introduce bad looking small font-size/high line-height combos. You could also fix this using
-// ($base-line-height / 2) on problem elements in your own stylesheet, if using rhythm in your Sass
-// workflow
+// to the grid exactly, half will also align to half lines). Whole is preferable, but can sometimes
+// introduce bad looking small font-size/high line-height combos. You could also fix this by
+// adjusting line height and margin (using rhythm variables) on problem elements in your own
+// stylesheet, if using rhythm in your Sass workflow
 // String; 'whole' or 'half'
 $align-to-grid: 'half';
 
