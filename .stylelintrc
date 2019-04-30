@@ -2,5 +2,8 @@
   "extends": "stylelint-config-standard",
   "rules": {
     "at-rule-no-unknown": null,
+    "selector-list-comma-newline-after": [ "always-multi-line" ],
+    "block-closing-brace-newline-after": [ "always-single-line" ],
+    "at-rule-empty-line-before": null,
   }
 }
