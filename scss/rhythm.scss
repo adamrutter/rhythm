@@ -44,8 +44,8 @@ body {
 // Styling
 //
 
-// Global style rules
-* {
+// Default global style rules for block level elements
+h1, h2, h3, h4, h5, h6, blockquote, dd, dl, dt, figcaption, figure, li, ol, p, ul {
   font-size: $base-size;
   line-height: $base-line-height;
   margin: $base-line-height 0;
