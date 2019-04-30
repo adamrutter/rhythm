@@ -4,7 +4,7 @@ Rhythm is a (work-in-progress) stylesheet that aims to provide easy-to-use typog
 
 ## Use
 
-You can either link `css/rhythm.min.css` in your html, or preferably use `scss/rhythm.scss` in your existing Sass workflow (you won't add any extra HTTP requests and you'll gain access to variables set within rhythm.scss).
+You can either link `css/rhythm.min.css` in your html, or preferably use `scss/rhythm.scss` in your existing Sass workflow (you won't add any extra HTTP requests and you'll gain access to variables set within `rhythm.scss`).
 
 ## Local installation
 
