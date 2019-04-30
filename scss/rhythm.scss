@@ -61,8 +61,7 @@ body {
 
     // Calculate line height to the nearest multiple of HALF our base line height (elements can
     // still fit our grid, but we won't have to deal with bad looking small font size/high line
-    // height combos; we'll add the half back using margin if we end up with a non-multiple of the
-    // whole line height) (Again, a variable so we can reuse it later)
+    // height combos (Again, a variable so we can reuse it later)
     $line-height: round(ceil($size / ($base-line-height / 2)) * ($base-line-height / 2));
     line-height: $line-height;
 
