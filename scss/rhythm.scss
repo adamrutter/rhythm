@@ -13,7 +13,10 @@ $scale-ratio: 1.2;
 
 // A line-height grid (useful for design/development, comment to disable)
 body {
-  background-image: linear-gradient(to bottom, rgba(0, 170, 255, 0.3) 1px, transparent 1px);
+  $grid-colour-1: rgba(0, 170, 255, 0.3);
+  $grid-colour-2: rgba(0, 170, 255, 0.15);
+  // background-image: linear-gradient(to bottom, $grid-colour-1 1px, transparent 1px);
+  background-image: linear-gradient(to bottom, $grid-colour-1 1px, transparent 1px, transparent ($base-line-height / 2), $grid-colour-2 ($base-line-height / 2), transparent (round($base-line-height / 2) + 2), transparent $base-line-height);
   background-position: left top;
   background-repeat: repeat;
   background-size: 100% $base-line-height;
