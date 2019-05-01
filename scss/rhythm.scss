@@ -119,3 +119,13 @@ dt {
   // Titles should have white space above them
   margin-top: $base-line-height;
 }
+
+// Figure
+figure {
+  padding: 0 $indent-amount;
+}
+
+// Blockquotes
+blockquote {
+  font-style: italic;
+}
