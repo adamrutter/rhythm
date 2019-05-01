@@ -51,7 +51,7 @@ $grid-enabled: true;
 // Functions
 //
 
-// A power function (multiply a number by itself n amount of times)
+// A 'power of' function (multiply a number by itself n amount of times)
 
 @function pow($number, $exponent) {
   $value: 1;
