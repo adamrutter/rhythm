@@ -99,14 +99,17 @@ h1, h2, h3, h4, h5, h6, blockquote, dd, dl, dt, figcaption, figure, li, ol, p, u
   }
 }
 
-// Lists (Make sure they are all aligned horizontally)
+// Lists (Make sure they are all aligned horizontally) (We set the indent in two parts; this means
+// we can control the distance the li is from the bullet)
 dl, ol, ul {
-  padding: 0 $base-size * 2.5;
+  padding: 0 $indent-amount * ((1 / 6) * 5);
 }
 
 dd, dt, li {
   margin: 0;
-  padding: 0 $base-size / 2;
+
+  // Distance from bullet
+  padding: 0 $indent-amount * ((1 / 6) * 1);
 }
 
 dt {
