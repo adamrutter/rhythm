@@ -95,3 +95,20 @@ h1, h2, h3, h4, h5, h6, blockquote, dd, dl, dt, figcaption, figure, li, ol, p, u
     margin: $base-line-height * 3 0 $base-line-height * 1 0;
   }
 }
+
+// Lists (Make sure they are all aligned horizontally)
+dl, ol, ul {
+  padding: 0 $base-size * 2.5;
+}
+
+dd, dt, li {
+  margin: 0;
+  padding: 0 $base-size / 2;
+}
+
+dt {
+  font-weight: 700;
+
+  // Titles should have white space above them
+  margin-top: $base-line-height;
+}
