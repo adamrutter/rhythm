@@ -11,6 +11,9 @@ $base-line-height: $base-size * 1.5;
 // The ratio by which we will scale sizing by
 $scale-ratio: 1.2;
 
+// Indent amount (used to indent things such as lists, figures etc)
+$indent-amount: $base-size * 3;
+
 // Align to either full multiples of $base-line-height, or half multiples (whole will fit elements
 // to the grid exactly, half will also align to half lines). Whole is preferable, but can sometimes
 // introduce bad looking small font-size/high line-height combos. You could also fix this by
