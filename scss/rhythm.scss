@@ -69,10 +69,14 @@ $grid-enabled: true;
 // Styling
 //
 
-// Default global style rules for block level elements
-blockquote, dd, dl, dt, figcaption, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
+// Set basic styles globally
+* {
   font-size: $base-size;
   line-height: $base-line-height;
+}
+
+// Default global style rules for block level elements
+blockquote, dd, dl, dt, figcaption, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
   margin: $base-line-height 0;
 }
 
