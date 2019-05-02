@@ -148,3 +148,62 @@ table {
     }
   }
 }
+// Forms; note, all borders are removed to ensure rhythm stays intact. If adding them back in, make
+// sure to use box-shadow to preserve rhythm
+  form {
+    margin: ($base-line-height * 2) 0;
+
+    * {
+      border: none;
+    }
+
+    button, input, select {
+      display: block;
+      line-height: $base-line-height * 2;
+      margin: $base-line-height 0;
+      padding: 0 $base-size;
+    }
+
+    input {
+      &[type='color'] {
+        height: $base-line-height * 1;
+      }
+
+      &[type='checkbox'],
+      &[type='radio'] {
+        height: $base-line-height;
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      &[type='file'] {
+        padding: 0;
+      }
+
+      &[type='range'] {
+        height: $base-line-height;
+      }
+    }
+
+    fieldset {
+      margin: 0;
+      padding: 0;
+    }
+
+    progress {
+      display: block;
+      height: $base-line-height / 2;
+      margin: (($base-line-height / 2) * 1.5) 0;
+    }
+
+    select {
+      height: $base-line-height * 2;
+    }
+
+    textarea {
+      display: block;
+      line-height: $base-line-height;
+      margin: $base-line-height 0;
+      padding: $base-line-height / 2 $base-size;
+    }
+  }
