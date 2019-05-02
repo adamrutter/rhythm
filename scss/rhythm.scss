@@ -22,6 +22,10 @@ $indent-amount: $base-size * 3;
 // String; 'whole' or 'half'
 $align-to-grid: 'half';
 
+// Style forms?
+// Boolean; true or false
+$style-forms-enabled: false;
+
 // Enable the grid?
 // Boolean; true or false
 $grid-enabled: true;
@@ -148,8 +152,10 @@ table {
     }
   }
 }
+
 // Forms; note, all borders are removed to ensure rhythm stays intact. If adding them back in, make
 // sure to use box-shadow to preserve rhythm
+@if $style-forms-enabled {
   form {
     margin: ($base-line-height * 2) 0;
 
@@ -207,3 +213,4 @@ table {
       padding: $base-line-height / 2 $base-size;
     }
   }
+}
