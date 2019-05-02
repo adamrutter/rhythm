@@ -133,3 +133,17 @@ figure {
 blockquote {
   font-style: italic;
 }
+
+// Tables; box-shadow has to be used instead of border (border adds to the height/width of the
+// element and breaks vertical rhythm)
+table {
+  border-collapse: collapse;
+
+  tr {
+    th, td {
+      box-shadow: 0 1px 0 black;
+      padding: 0 $indent-amount 0 0;
+      text-align: left;
+    }
+  }
+}
