@@ -62,8 +62,8 @@ $show-grid: true;
 @mixin grid($line-height, $align-to-grid) {
   @if $show-grid {
     body {
-      $grid-colour-1: rgba(0, 170, 255, 0.6);
-      $grid-colour-2: rgba(0, 170, 255, 0.3);
+      $grid-colour-1: hsla(300, 100, 50, 0.5);
+      $grid-colour-2: hsla(300, 100, 50, 0.15);
 
       @if $align-to-grid == 'whole' {
         background-image: linear-gradient(to bottom, $grid-colour-1 1px, transparent 1px);
