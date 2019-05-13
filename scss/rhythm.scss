@@ -44,7 +44,11 @@ $indent-multiplier: (
 // adjusting line height and margin (using rhythm variables) on problem elements in your own
 // stylesheet, if using rhythm in your Sass workflow
 // String; 'whole' or 'half'
-$align-to-grid: 'half';
+$align-to-grid: (
+  'default': 'half',
+  'tablet': 'half',
+  'desktop': 'whole',
+);
 
 // Enable the grid?
 // Boolean; true or false
@@ -54,7 +58,7 @@ $grid-enabled: true;
 // Grid
 //
 
-@mixin grid($line-height) {
+@mixin grid($line-height, $align-to-grid) {
   @if $grid-enabled {
     body {
       $grid-colour-1: rgba(0, 170, 255, 0.3);
@@ -95,14 +99,14 @@ $grid-enabled: true;
 //
 
 // Uses mixin so the styles can be applied at different breakpoints
-@mixin styling($base-size, $base-line-height, $scale-ratio, $indent-multiplier) {
+@mixin styling($base-size, $base-line-height, $scale-ratio, $indent-multiplier, $align-to-grid) {
 
   // Variables
   $line-height: $base-size * $base-line-height;
   $indent-amount: $base-size * $indent-multiplier;
 
   // Include the layout grid
-  @include grid($line-height);
+  @include grid($line-height, $align-to-grid);
 
   // Set basic styles globally
   * {
@@ -196,13 +200,15 @@ $grid-enabled: true;
     @include styling($base-size: map-get($base-size, $breakpoint),
       $base-line-height: map-get($base-line-height, $breakpoint),
       $scale-ratio: map-get($scale-ratio, $breakpoint),
-      $indent-multiplier: map-get($indent-multiplier, $breakpoint));
+      $indent-multiplier: map-get($indent-multiplier, $breakpoint),
+      $align-to-grid: map-get($align-to-grid, $breakpoint));
   } @else {
     @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
       @include styling($base-size: map-get($base-size, $breakpoint),
         $base-line-height: map-get($base-line-height, $breakpoint),
         $scale-ratio: map-get($scale-ratio, $breakpoint),
-        $indent-multiplier: map-get($indent-multiplier, $breakpoint));
+        $indent-multiplier: map-get($indent-multiplier, $breakpoint),
+        $align-to-grid: map-get($align-to-grid, $breakpoint));
     }
   }
 }
