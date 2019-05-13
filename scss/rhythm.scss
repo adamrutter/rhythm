@@ -54,22 +54,24 @@ $grid-enabled: true;
 // Grid
 //
 
-// @if $grid-enabled {
-//   body {
-//     $grid-colour-1: rgba(0, 170, 255, 0.3);
-//     $grid-colour-2: rgba(0, 170, 255, 0.15);
-//
-//     @if $align-to-grid == 'whole' {
-//       background-image: linear-gradient(to bottom, $grid-colour-1 1px, transparent 1px);
-//     } @else if $align-to-grid == 'half' {
-//       background-image: linear-gradient(to bottom, $grid-colour-1 1px, transparent 1px, transparent ($base-line-height / 2), $grid-colour-2 ($base-line-height / 2), transparent (round($base-line-height / 2) + 2), transparent $base-line-height);
-//     }
-//
-//     background-position: left top;
-//     background-repeat: repeat;
-//     background-size: 100% $base-line-height;
-//   }
-// }
+@mixin grid($base-line-height) {
+  @if $grid-enabled {
+    body {
+      $grid-colour-1: rgba(0, 170, 255, 0.3);
+      $grid-colour-2: rgba(0, 170, 255, 0.15);
+
+      @if $align-to-grid == 'whole' {
+        background-image: linear-gradient(to bottom, $grid-colour-1 1px, transparent 1px);
+      } @else if $align-to-grid == 'half' {
+        background-image: linear-gradient(to bottom, $grid-colour-1 1px, transparent 1px, transparent ($base-line-height / 2), $grid-colour-2 ($base-line-height / 2), transparent (round($base-line-height / 2) + 2), transparent $base-line-height);
+      }
+
+      background-position: left top;
+      background-repeat: repeat;
+      background-size: 100% $base-line-height;
+    }
+  }
+}
 
 //
 // Functions
@@ -104,6 +106,9 @@ $grid-enabled: true;
 
 // Uses mixin so the styles can be applied at different breakpoints
 @mixin styling($base-size, $base-line-height, $scale-ratio, $indent-amount) {
+
+  // Include the layout grid
+  @include grid(line-height($base-size, $base-line-height));
 
   // Set basic styles globally
   * {
