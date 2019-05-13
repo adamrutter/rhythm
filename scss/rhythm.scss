@@ -52,14 +52,14 @@ $align-to-grid: (
 
 // Enable the grid?
 // Boolean; true or false
-$grid-enabled: true;
+$show-grid: true;
 
 //
 // Grid
 //
 
 @mixin grid($line-height, $align-to-grid) {
-  @if $grid-enabled {
+  @if $show-grid {
     body {
       $grid-colour-1: rgba(0, 170, 255, 0.3);
       $grid-colour-2: rgba(0, 170, 255, 0.15);
