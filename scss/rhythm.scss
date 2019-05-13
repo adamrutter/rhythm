@@ -56,7 +56,6 @@ $grid-enabled: true;
 //
 
 // A 'power of' function (multiply a number by itself n amount of times)
-
 @function pow($number, $exponent) {
   $value: 1;
 
@@ -69,6 +68,7 @@ $grid-enabled: true;
   @return $value;
 }
 
+// Calculate line-height
 @function line-height($base-size, $base-line-height) {
   @return $base-size * $base-line-height;
 }
