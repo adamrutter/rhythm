@@ -43,7 +43,7 @@ $indent-multiplier: (
 // introduce bad looking small font-size/high line-height combos. You could also fix this by
 // adjusting line height and margin (using rhythm variables) on problem elements in your own
 // stylesheet, if using rhythm in your Sass workflow
-// String; 'whole' or 'half'
+// String; 'exact' or 'half'
 $align-to-grid: (
   'default': 'half',
   'tablet': 'half',
@@ -65,7 +65,7 @@ $show-grid: true;
       $grid-colour-1: hsla(300, 100, 50, 0.5);
       $grid-colour-2: hsla(300, 100, 50, 0.15);
 
-      @if $align-to-grid == 'whole' {
+      @if $align-to-grid == 'exact' {
         background-image: linear-gradient(to bottom, $grid-colour-1 1px, transparent 1px);
       } @else if $align-to-grid == 'half' {
         background-image: linear-gradient(to bottom, $grid-colour-1 1px, transparent 1px, transparent ($line-height / 2), $grid-colour-2 ($line-height / 2), transparent (round($line-height / 2) + 2), transparent $line-height);
@@ -129,7 +129,7 @@ $show-grid: true;
       font-size: $size;
 
       // Calculate line height
-      @if $align-to-grid == 'whole' {
+      @if $align-to-grid == 'exact' {
         $heading-line-height: round(ceil($size / $line-height) * $line-height);
         line-height: $heading-line-height;
       } @else if $align-to-grid == 'half' {
