@@ -2,29 +2,41 @@
 // Config
 //
 
+// Breakpoints (make sure to add entries for each breakpoint in the other config maps)
+// (Uses min-width; rememeber, mobile first!)
+$breakpoints: (
+  'default': 0,
+  'tablet': 450px,
+  'desktop': 700px,
+);
+
 // The base font size (used for body text, and to calculate other sizing)
 $base-size: (
-  'small': 16px,
-  'large': 20px,
+  'default': 20px,
+  'tablet': 18px,
+  'desktop': 16px,
 );
 
 // The base line height (1.5 times the base font size usually works)
 $base-line-height: (
-  'small': 1.5,
-  'large': 1.5,
+  'default': 1.3,
+  'tablet': 1.4,
+  'desktop': 1.5,
 );
 
 // The ratio by which we will scale sizing by
 $scale-ratio: (
-  'small': 1.2,
-  'large': 1.2,
+  'default': 1.2,
+  'tablet': 1.2,
+  'desktop': 1.2,
 );
 
 // Indent amount (used to indent things such as lists, figures etc)
 $indent-amount: 3;
 $indent-amount: (
-  'small': 3,
-  'large': 3,
+  'default': 1.5,
+  'tablet': 2,
+  'desktop': 3,
 );
 
 // Align to either full multiples of $base-line-height, or half multiples (whole will fit elements
@@ -39,7 +51,7 @@ $align-to-grid: 'half';
 // Boolean; true or false
 $grid-enabled: true;
 
-//
+//base-size
 // Grid
 //
 
@@ -179,16 +191,32 @@ $grid-enabled: true;
 // Media queries
 //
 
-// Default
-@include styling($base-size: map-get($base-size, 'small'),
-  $base-line-height: map-get($base-line-height, 'small'),
-  $scale-ratio: map-get($scale-ratio, 'small'),
-  $indent-amount: map-get($indent-amount, 'small'));
-
-// Breakpoint 1
-@media screen and (max-width: 500px) {
-  @include styling($base-size: map-get($base-size, 'large'),
-  $base-line-height: map-get($base-line-height, 'large'),
-  $scale-ratio: map-get($scale-ratio, 'large'),
-  $indent-amount: map-get($indent-amount, 'small'));
+@each $breakpoint, $width in $breakpoints {
+  @if ($breakpoint == 'default') {
+    @include styling($base-size: map-get($base-size, $breakpoint),
+      $base-line-height: map-get($base-line-height, $breakpoint),
+      $scale-ratio: map-get($scale-ratio, $breakpoint),
+      $indent-amount: map-get($indent-amount, $breakpoint));
+  } @else {
+    @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
+      @include styling($base-size: map-get($base-size, $breakpoint),
+        $base-line-height: map-get($base-line-height, $breakpoint),
+        $scale-ratio: map-get($scale-ratio, $breakpoint),
+        $indent-amount: map-get($indent-amount, $breakpoint));
+    }
+  }
 }
+
+// // Default
+// @include styling($base-size: map-get($base-size, 'small'),
+//   $base-line-height: map-get($base-line-height, 'small'),
+//   $scale-ratio: map-get($scale-ratio, 'small'),
+//   $indent-amount: map-get($indent-amount, 'small'));
+//
+// // Breakpoint 1
+// @media screen and (max-width: 500px) {
+//   @include styling($base-size: map-get($base-size, 'large'),
+//   $base-line-height: map-get($base-line-height, 'large'),
+//   $scale-ratio: map-get($scale-ratio, 'large'),
+//   $indent-amount: map-get($indent-amount, 'small'));
+// }
