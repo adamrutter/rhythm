@@ -3,7 +3,11 @@
 //
 
 // The base font size (used for body text, and to calculate other sizing)
-$base-size: 16px;
+// $base-size: 16px;
+$base-size: (
+  'small': 16px,
+  'large': 20px,
+);
 
 // The base line height (1.5 times the base font size usually works)
 $base-line-height: $base-size * 1.5;
@@ -158,9 +162,9 @@ $grid-enabled: true;
 //
 
 // Default
-@include styling($base-size: 15px);
+@include styling($base-size: map-get($base-size, 'small'));
 
 // Breakpoint 1
 @media screen and (max-width: 500px) {
-  @include styling($base-size: 30px);
+  @include styling($base-size: map-get($base-size, 'large'));
 }
