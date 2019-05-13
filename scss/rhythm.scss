@@ -103,8 +103,8 @@ $show-grid: true;
 @mixin styling($base-size, $base-line-height, $scale-ratio, $indent-multiplier, $align-to-grid) {
 
   // Variables
-  $line-height: $base-size * $base-line-height;
-  $indent-amount: $base-size * $indent-multiplier;
+  $line-height: round($base-size * $base-line-height);
+  $indent-amount: round($base-size * $indent-multiplier);
 
   // Include the layout grid
   @include grid($line-height, $align-to-grid);
