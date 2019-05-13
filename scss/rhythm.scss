@@ -23,6 +23,10 @@ $scale-ratio: (
 
 // Indent amount (used to indent things such as lists, figures etc)
 $indent-amount: 3;
+$indent-amount: (
+  'small': 3,
+  'large': 3,
+);
 
 // Align to either full multiples of $base-line-height, or half multiples (whole will fit elements
 // to the grid exactly, half will also align to half lines). Whole is preferable, but can sometimes
@@ -89,7 +93,7 @@ $grid-enabled: true;
 //
 
 // Uses mixin so the styles can be applied at different breakpoints
-@mixin styling($base-size, $base-line-height, $scale-ratio) {
+@mixin styling($base-size, $base-line-height, $scale-ratio, $indent-amount) {
 
   // Set basic styles globally
   * {
@@ -179,11 +183,13 @@ $grid-enabled: true;
 // Default
 @include styling($base-size: map-get($base-size, 'small'),
   $base-line-height: map-get($base-line-height, 'small'),
-  $scale-ratio: map-get($scale-ratio, 'small'));
+  $scale-ratio: map-get($scale-ratio, 'small'),
+  $indent-amount: map-get($indent-amount, 'small'));
 
 // Breakpoint 1
 @media screen and (max-width: 500px) {
   @include styling($base-size: map-get($base-size, 'large'),
   $base-line-height: map-get($base-line-height, 'large'),
-  $scale-ratio: map-get($scale-ratio, 'large'));
+  $scale-ratio: map-get($scale-ratio, 'large'),
+  $indent-amount: map-get($indent-amount, 'small'));
 }
