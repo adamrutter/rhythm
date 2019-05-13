@@ -10,7 +10,10 @@ $base-size: (
 );
 
 // The base line height (1.5 times the base font size usually works)
-$base-line-height: 1.5;
+$base-line-height: (
+  'small': 1.5,
+  'large': 1.5,
+);
 
 // The ratio by which we will scale sizing by
 $scale-ratio: 1.2;
@@ -83,7 +86,7 @@ $grid-enabled: true;
 //
 
 // Uses mixin so the styles can be applied at different breakpoints
-@mixin styling($base-size) {
+@mixin styling($base-size, $base-line-height) {
 
   // Set basic styles globally
   * {
@@ -171,9 +174,9 @@ $grid-enabled: true;
 //
 
 // Default
-@include styling($base-size: map-get($base-size, 'small'));
+@include styling($base-size: map-get($base-size, 'small'), $base-line-height: map-get($base-line-height, 'small'));
 
 // Breakpoint 1
 @media screen and (max-width: 500px) {
-  @include styling($base-size: map-get($base-size, 'large'));
+  @include styling($base-size: map-get($base-size, 'large'), $base-line-height: map-get($base-line-height, 'large'));
 }
