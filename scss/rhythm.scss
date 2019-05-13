@@ -208,17 +208,3 @@ $grid-enabled: true;
     }
   }
 }
-
-// // Default
-// @include styling($base-size: map-get($base-size, 'small'),
-//   $base-line-height: map-get($base-line-height, 'small'),
-//   $scale-ratio: map-get($scale-ratio, 'small'),
-//   $indent-amount: map-get($indent-amount, 'small'));
-//
-// // Breakpoint 1
-// @media screen and (max-width: 500px) {
-//   @include styling($base-size: map-get($base-size, 'large'),
-//   $base-line-height: map-get($base-line-height, 'large'),
-//   $scale-ratio: map-get($scale-ratio, 'large'),
-//   $indent-amount: map-get($indent-amount, 'small'));
-// }
