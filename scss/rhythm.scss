@@ -73,6 +73,11 @@ $grid-enabled: true;
   @return $base-size * $base-line-height;
 }
 
+// Calculate indent-amount
+@function indent-amount($base-size, $indent-amount) {
+  @return $base-size * $indent-amount;
+}
+
 //
 // Styling
 //
@@ -118,14 +123,14 @@ $grid-enabled: true;
   // we can control the distance the li is from the bullet; if you change it, make sure the two parts
   // add up to the whole value of $indent-amount to keep horizontal alignment)
   dl, ol, ul {
-    padding: 0 ($base-size * $indent-amount) * ((1 / 6) * 5);
+    padding: 0 indent-amount($base-size, $indent-amount) * ((1 / 6) * 5);
   }
 
   dd, dt, li {
     margin: 0;
 
     // Distance from bullet
-    padding: 0 ($base-size * $indent-amount) * ((1 / 6) * 1);
+    padding: 0 indent-amount($base-size, $indent-amount) * ((1 / 6) * 1);
   }
 
   dt {
@@ -138,7 +143,7 @@ $grid-enabled: true;
   // Figure
   figure {
     margin: line-height($base-size, $base-line-height) * 2 0;
-    padding: 0 ($base-size * $indent-amount);
+    padding: 0 indent-amount($base-size, $indent-amount);
   }
 
   // Blockquotes
@@ -154,7 +159,7 @@ $grid-enabled: true;
     tr {
       th, td {
         box-shadow: 0 1px 0 black;
-        padding: 0 ($base-size * $indent-amount) 0 0;
+        padding: 0 indent-amount($base-size, $indent-amount) 0 0;
         text-align: left;
       }
     }
