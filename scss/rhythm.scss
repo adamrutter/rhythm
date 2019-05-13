@@ -70,7 +70,7 @@ $grid-enabled: true;
 }
 
 @function line-height($base-size, $base-line-height) {
-  @return $base-size * $base-line-height
+  @return $base-size * $base-line-height;
 }
 
 //
