@@ -10,13 +10,13 @@ $base-size: (
 );
 
 // The base line height (1.5 times the base font size usually works)
-$base-line-height: $base-size * 1.5;
+$base-line-height: 1.5;
 
 // The ratio by which we will scale sizing by
 $scale-ratio: 1.2;
 
 // Indent amount (used to indent things such as lists, figures etc)
-$indent-amount: $base-size * 3;
+$indent-amount: 3;
 
 // Align to either full multiples of $base-line-height, or half multiples (whole will fit elements
 // to the grid exactly, half will also align to half lines). Whole is preferable, but can sometimes
@@ -34,22 +34,22 @@ $grid-enabled: true;
 // Grid
 //
 
-@if $grid-enabled {
-  body {
-    $grid-colour-1: rgba(0, 170, 255, 0.3);
-    $grid-colour-2: rgba(0, 170, 255, 0.15);
-
-    @if $align-to-grid == 'whole' {
-      background-image: linear-gradient(to bottom, $grid-colour-1 1px, transparent 1px);
-    } @else if $align-to-grid == 'half' {
-      background-image: linear-gradient(to bottom, $grid-colour-1 1px, transparent 1px, transparent ($base-line-height / 2), $grid-colour-2 ($base-line-height / 2), transparent (round($base-line-height / 2) + 2), transparent $base-line-height);
-    }
-
-    background-position: left top;
-    background-repeat: repeat;
-    background-size: 100% $base-line-height;
-  }
-}
+// @if $grid-enabled {
+//   body {
+//     $grid-colour-1: rgba(0, 170, 255, 0.3);
+//     $grid-colour-2: rgba(0, 170, 255, 0.15);
+//
+//     @if $align-to-grid == 'whole' {
+//       background-image: linear-gradient(to bottom, $grid-colour-1 1px, transparent 1px);
+//     } @else if $align-to-grid == 'half' {
+//       background-image: linear-gradient(to bottom, $grid-colour-1 1px, transparent 1px, transparent ($base-line-height / 2), $grid-colour-2 ($base-line-height / 2), transparent (round($base-line-height / 2) + 2), transparent $base-line-height);
+//     }
+//
+//     background-position: left top;
+//     background-repeat: repeat;
+//     background-size: 100% $base-line-height;
+//   }
+// }
 
 //
 // Functions
@@ -79,12 +79,12 @@ $grid-enabled: true;
   // Set basic styles globally
   * {
     font-size: $base-size;
-    line-height: $base-line-height;
+    line-height: ($base-size * $base-line-height);
   }
 
   // Default global style rules for block level text elements
   blockquote, dd, dl, dt, figcaption, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
-    margin: $base-line-height 0;
+    margin: ($base-size * $base-line-height) 0;
   }
 
   // Headings (this styles headings 1 through 6)
@@ -97,16 +97,16 @@ $grid-enabled: true;
 
       // Calculate line height
       @if $align-to-grid == 'whole' {
-        $line-height: round(ceil($size / $base-line-height) * $base-line-height);
+        $line-height: round(ceil($size / ($base-size * $base-line-height)) * ($base-size * $base-line-height));
         line-height: $line-height;
       } @else if $align-to-grid == 'half' {
-        $line-height: round(ceil($size / ($base-line-height / 2)) * ($base-line-height / 2));
+        $line-height: round(ceil($size / (($base-size * $base-line-height) / 2)) * (($base-size * $base-line-height) / 2));
         line-height: $line-height;
       }
 
       // Headings should have more white space above them than below, remember the Gestalt principle
       // of proximity
-      margin: $base-line-height * 3 0 $base-line-height * 1 0;
+      margin: ($base-size * $base-line-height) * 3 0 ($base-size * $base-line-height) * 1 0;
     }
   }
 
@@ -114,27 +114,27 @@ $grid-enabled: true;
   // we can control the distance the li is from the bullet; if you change it, make sure the two parts
   // add up to the whole value of $indent-amount to keep horizontal alignment)
   dl, ol, ul {
-    padding: 0 $indent-amount * ((1 / 6) * 5);
+    padding: 0 ($base-size * $indent-amount) * ((1 / 6) * 5);
   }
 
   dd, dt, li {
     margin: 0;
 
     // Distance from bullet
-    padding: 0 $indent-amount * ((1 / 6) * 1);
+    padding: 0 ($base-size * $indent-amount) * ((1 / 6) * 1);
   }
 
   dt {
     font-weight: 700;
 
     // Titles should have white space above them
-    margin-top: $base-line-height;
+    margin-top: ($base-size * $base-line-height);
   }
 
   // Figure
   figure {
-    margin: $base-line-height * 2 0;
-    padding: 0 $indent-amount;
+    margin: ($base-size * $base-line-height) * 2 0;
+    padding: 0 ($base-size * $indent-amount);
   }
 
   // Blockquotes
@@ -150,7 +150,7 @@ $grid-enabled: true;
     tr {
       th, td {
         box-shadow: 0 1px 0 black;
-        padding: 0 $indent-amount 0 0;
+        padding: 0 ($base-size * $indent-amount) 0 0;
         text-align: left;
       }
     }
