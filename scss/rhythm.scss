@@ -191,6 +191,8 @@ $grid-enabled: true;
 // Media queries
 //
 
+// Iterate through the $breakpoints map, and produce a media query for each entry, including default
+// styling
 @each $breakpoint, $width in $breakpoints {
   @if ($breakpoint == 'default') {
     @include styling($base-size: map-get($base-size, $breakpoint),
