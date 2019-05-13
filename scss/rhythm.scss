@@ -31,8 +31,8 @@ $scale-ratio: (
   'desktop': 1.2,
 );
 
-// Indent amount (used to indent things such as lists, figures etc)
-$indent-amount: (
+// Indent amount (used to indent things such as lists, figures etc) (Multiplied by $base-size)
+$indent-multiplier: (
   'default': 1.5,
   'tablet': 2,
   'desktop': 3,
@@ -54,7 +54,7 @@ $grid-enabled: true;
 // Grid
 //
 
-@mixin grid($base-line-height) {
+@mixin grid($line-height) {
   @if $grid-enabled {
     body {
       $grid-colour-1: rgba(0, 170, 255, 0.3);
@@ -63,12 +63,12 @@ $grid-enabled: true;
       @if $align-to-grid == 'whole' {
         background-image: linear-gradient(to bottom, $grid-colour-1 1px, transparent 1px);
       } @else if $align-to-grid == 'half' {
-        background-image: linear-gradient(to bottom, $grid-colour-1 1px, transparent 1px, transparent ($base-line-height / 2), $grid-colour-2 ($base-line-height / 2), transparent (round($base-line-height / 2) + 2), transparent $base-line-height);
+        background-image: linear-gradient(to bottom, $grid-colour-1 1px, transparent 1px, transparent ($line-height / 2), $grid-colour-2 ($line-height / 2), transparent (round($line-height / 2) + 2), transparent $line-height);
       }
 
       background-position: left top;
       background-repeat: repeat;
-      background-size: 100% $base-line-height;
+      background-size: 100% $line-height;
     }
   }
 }
@@ -90,35 +90,29 @@ $grid-enabled: true;
   @return $value;
 }
 
-// Calculate line-height
-@function line-height($base-size, $base-line-height) {
-  @return $base-size * $base-line-height;
-}
-
-// Calculate indent-amount
-@function indent-amount($base-size, $indent-amount) {
-  @return $base-size * $indent-amount;
-}
-
 //
 // Styling
 //
 
 // Uses mixin so the styles can be applied at different breakpoints
-@mixin styling($base-size, $base-line-height, $scale-ratio, $indent-amount) {
+@mixin styling($base-size, $base-line-height, $scale-ratio, $indent-multiplier) {
+
+  // Variables
+  $line-height: $base-size * $base-line-height;
+  $indent-amount: $base-size * $indent-multiplier;
 
   // Include the layout grid
-  @include grid(line-height($base-size, $base-line-height));
+  @include grid($line-height);
 
   // Set basic styles globally
   * {
     font-size: $base-size;
-    line-height: line-height($base-size, $base-line-height);
+    line-height: $line-height;
   }
 
   // Default global style rules for block level text elements
   blockquote, dd, dl, dt, figcaption, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
-    margin: line-height($base-size, $base-line-height) 0;
+    margin: $line-height 0;
   }
 
   // Headings (this styles headings 1 through 6)
@@ -131,44 +125,44 @@ $grid-enabled: true;
 
       // Calculate line height
       @if $align-to-grid == 'whole' {
-        $line-height: round(ceil($size / line-height($base-size, $base-line-height)) * line-height($base-size, $base-line-height));
-        line-height: $line-height;
+        $heading-line-height: round(ceil($size / $line-height) * $line-height);
+        line-height: $heading-line-height;
       } @else if $align-to-grid == 'half' {
-        $line-height: round(ceil($size / (line-height($base-size, $base-line-height) / 2)) * (line-height($base-size, $base-line-height) / 2));
-        line-height: $line-height;
+        $heading-line-height: round(ceil($size / ($line-height / 2)) * ($line-height / 2));
+        line-height: $heading-line-height;
       }
 
       // Headings should have more white space above them than below, remember the Gestalt principle
       // of proximity
-      margin: line-height($base-size, $base-line-height) * 3 0 line-height($base-size, $base-line-height) * 1 0;
+      margin: $line-height * 3 0 $line-height * 1 0;
     }
   }
 
   // Lists (Make sure they are all aligned horizontally) (We set the indent in two parts; this means
   // we can control the distance the li is from the bullet; if you change it, make sure the two parts
-  // add up to the whole value of $indent-amount to keep horizontal alignment)
+  // add up to the whole value of $indent-multiplier to keep horizontal alignment)
   dl, ol, ul {
-    padding: 0 indent-amount($base-size, $indent-amount) * ((1 / 6) * 5);
+    padding: 0 $indent-amount * ((1 / 6) * 5);
   }
 
   dd, dt, li {
     margin: 0;
 
     // Distance from bullet
-    padding: 0 indent-amount($base-size, $indent-amount) * ((1 / 6) * 1);
+    padding: 0 $indent-amount * ((1 / 6) * 1);
   }
 
   dt {
     font-weight: 700;
 
     // Titles should have white space above them
-    margin-top: line-height($base-size, $base-line-height);
+    margin-top: $line-height;
   }
 
   // Figure
   figure {
-    margin: line-height($base-size, $base-line-height) * 2 0;
-    padding: 0 indent-amount($base-size, $indent-amount);
+    margin: $line-height * 2 0;
+    padding: 0 $indent-amount;
   }
 
   // Blockquotes
@@ -184,7 +178,7 @@ $grid-enabled: true;
     tr {
       th, td {
         box-shadow: 0 1px 0 black;
-        padding: 0 indent-amount($base-size, $indent-amount) 0 0;
+        padding: 0 $indent-amount 0 0;
         text-align: left;
       }
     }
@@ -202,13 +196,13 @@ $grid-enabled: true;
     @include styling($base-size: map-get($base-size, $breakpoint),
       $base-line-height: map-get($base-line-height, $breakpoint),
       $scale-ratio: map-get($scale-ratio, $breakpoint),
-      $indent-amount: map-get($indent-amount, $breakpoint));
+      $indent-multiplier: map-get($indent-multiplier, $breakpoint));
   } @else {
     @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
       @include styling($base-size: map-get($base-size, $breakpoint),
         $base-line-height: map-get($base-line-height, $breakpoint),
         $scale-ratio: map-get($scale-ratio, $breakpoint),
-        $indent-amount: map-get($indent-amount, $breakpoint));
+        $indent-multiplier: map-get($indent-multiplier, $breakpoint));
     }
   }
 }
