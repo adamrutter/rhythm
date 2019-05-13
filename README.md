@@ -4,7 +4,7 @@ Rhythm is a stylesheet that aims to provide easy-to-use, responsive typographica
 
 ## Use
 
-Download or clone Rhythm; you can then either link `css/rhythm.min.css` in your html, or preferably use `scss/rhythm.scss` in your existing Sass workflow (you won't add any extra HTTP requests and you'll gain access to variables set within rhythm.scss).
+Download or clone Rhythm; you can then either link `css/rhythm.min.css` in your html, or preferably use `scss/rhythm.scss` in your existing Sass workflow (you won't add any extra HTTP requests and you'll gain access to variables set within `rhythm.scss`).
 
 ## Configuration
 
@@ -28,9 +28,9 @@ $breakpoints: (
 
 Add your breakpoints to the further five configuartion maps ($base-size, $base-line-height, $scale-ratio, $indent-multiplier, and $align-to-grid) and set values for each:
 
-#### `$base-size
+#### `$base-size`
 
-Sets the base font size for the breakpoint. Used for body type, and to calculate all other sizes.`
+Sets the base font size for the breakpoint. Used for body type, and to calculate all other sizes.
 
 ``` scss
 $base-size: (
