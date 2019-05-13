@@ -58,6 +58,7 @@ $show-grid: true;
 // Grid
 //
 
+// Uses mixin so the styles can be applied at different breakpoints
 @mixin grid($line-height, $align-to-grid) {
   @if $show-grid {
     body {
