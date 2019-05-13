@@ -69,82 +69,98 @@ $grid-enabled: true;
 // Styling
 //
 
-// Set basic styles globally
-* {
-  font-size: $base-size;
-  line-height: $base-line-height;
-}
+// Uses mixin so the styles can be applied at different breakpoints
+@mixin styling($base-size) {
 
-// Default global style rules for block level text elements
-blockquote, dd, dl, dt, figcaption, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
-  margin: $base-line-height 0;
-}
+  // Set basic styles globally
+  * {
+    font-size: $base-size;
+    line-height: $base-line-height;
+  }
 
-// Headings (this styles headings 1 through 6)
-@for $i from 1 through 6 {
-  h#{$i} {
+  // Default global style rules for block level text elements
+  blockquote, dd, dl, dt, figcaption, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
+    margin: $base-line-height 0;
+  }
 
-    // Calculate the correct font size (as a variable first, so it can be reused later)
-    $size: round($base-size * pow($scale-ratio, abs($i - 7)));
-    font-size: $size;
+  // Headings (this styles headings 1 through 6)
+  @for $i from 1 through 6 {
+    h#{$i} {
 
-    // Calculate line height
-    @if $align-to-grid == 'whole' {
-      $line-height: round(ceil($size / $base-line-height) * $base-line-height);
-      line-height: $line-height;
-    } @else if $align-to-grid == 'half' {
-      $line-height: round(ceil($size / ($base-line-height / 2)) * ($base-line-height / 2));
-      line-height: $line-height;
+      // Calculate the correct font size (as a variable first, so it can be reused later)
+      $size: round($base-size * pow($scale-ratio, abs($i - 7)));
+      font-size: $size;
+
+      // Calculate line height
+      @if $align-to-grid == 'whole' {
+        $line-height: round(ceil($size / $base-line-height) * $base-line-height);
+        line-height: $line-height;
+      } @else if $align-to-grid == 'half' {
+        $line-height: round(ceil($size / ($base-line-height / 2)) * ($base-line-height / 2));
+        line-height: $line-height;
+      }
+
+      // Headings should have more white space above them than below, remember the Gestalt principle
+      // of proximity
+      margin: $base-line-height * 3 0 $base-line-height * 1 0;
     }
+  }
 
-    // Headings should have more white space above them than below, remember the Gestalt principle
-    // of proximity
-    margin: $base-line-height * 3 0 $base-line-height * 1 0;
+  // Lists (Make sure they are all aligned horizontally) (We set the indent in two parts; this means
+  // we can control the distance the li is from the bullet; if you change it, make sure the two parts
+  // add up to the whole value of $indent-amount to keep horizontal alignment)
+  dl, ol, ul {
+    padding: 0 $indent-amount * ((1 / 6) * 5);
+  }
+
+  dd, dt, li {
+    margin: 0;
+
+    // Distance from bullet
+    padding: 0 $indent-amount * ((1 / 6) * 1);
+  }
+
+  dt {
+    font-weight: 700;
+
+    // Titles should have white space above them
+    margin-top: $base-line-height;
+  }
+
+  // Figure
+  figure {
+    margin: $base-line-height * 2 0;
+    padding: 0 $indent-amount;
+  }
+
+  // Blockquotes
+  blockquote {
+    font-style: italic;
+  }
+
+  // Tables; box-shadow has to be used instead of border (border adds to the height/width of the
+  // element and breaks vertical rhythm)
+  table {
+    border-collapse: collapse;
+
+    tr {
+      th, td {
+        box-shadow: 0 1px 0 black;
+        padding: 0 $indent-amount 0 0;
+        text-align: left;
+      }
+    }
   }
 }
 
-// Lists (Make sure they are all aligned horizontally) (We set the indent in two parts; this means
-// we can control the distance the li is from the bullet; if you change it, make sure the two parts
-// add up to the whole value of $indent-amount to keep horizontal alignment)
-dl, ol, ul {
-  padding: 0 $indent-amount * ((1 / 6) * 5);
-}
+//
+// Media queries
+//
 
-dd, dt, li {
-  margin: 0;
+// Default
+@include styling($base-size: 15px);
 
-  // Distance from bullet
-  padding: 0 $indent-amount * ((1 / 6) * 1);
-}
-
-dt {
-  font-weight: 700;
-
-  // Titles should have white space above them
-  margin-top: $base-line-height;
-}
-
-// Figure
-figure {
-  margin: $base-line-height * 2 0;
-  padding: 0 $indent-amount;
-}
-
-// Blockquotes
-blockquote {
-  font-style: italic;
-}
-
-// Tables; box-shadow has to be used instead of border (border adds to the height/width of the
-// element and breaks vertical rhythm)
-table {
-  border-collapse: collapse;
-
-  tr {
-    th, td {
-      box-shadow: 0 1px 0 black;
-      padding: 0 $indent-amount 0 0;
-      text-align: left;
-    }
-  }
+// Breakpoint 1
+@media screen and (max-width: 500px) {
+  @include styling($base-size: 30px);
 }
