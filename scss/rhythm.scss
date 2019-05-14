@@ -188,6 +188,12 @@ $show-grid: true;
       }
     }
   }
+
+  // Code
+  code {
+    font-size: round($base-size * 0.85);
+    vertical-align: bottom;
+  }
 }
 
 //
