@@ -19,9 +19,9 @@ $base-size: (
 
 // The base line height (1.5 times the base font size usually works)
 $base-line-height: (
-  'default': 1.3,
-  'tablet': 1.4,
-  'desktop': 1.5,
+  'default': 1.2,
+  'tablet': 1.3,
+  'desktop': 1.4,
 );
 
 // The ratio by which we will scale sizing by
@@ -45,9 +45,9 @@ $indent-multiplier: (
 // stylesheet, if using rhythm in your Sass workflow
 // String; 'exact' or 'half'
 $align-to-grid: (
-  'default': 'half',
-  'tablet': 'half',
-  'desktop': 'half',
+  'default': 'exact',
+  'tablet': 'exact',
+  'desktop': 'exact',
 );
 
 // Enable the grid?
