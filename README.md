@@ -14,7 +14,7 @@ To configure Rhythm for your project:
 
 ### 1. Add breakpoints
 
-Add breakpoints as key: value pairs to the $breakpoints map:
+Add breakpoints as `key: value` pairs to the `$breakpoints` map:
 
 ``` scss
 $breakpoints: (
@@ -26,7 +26,7 @@ $breakpoints: (
 
 ### 2. Configure breakpoints
 
-Add your breakpoints to the further five configuartion maps ($base-size, $base-line-height, $scale-ratio, $indent-multiplier, and $align-to-grid) and set values for each:
+Add your breakpoints to the further five configuartion maps (`$base-size`, `$base-line-height`, `$scale-ratio`, `$indent-multiplier`, and `$align-to-grid`) and set values for each:
 
 #### `$base-size`
 
