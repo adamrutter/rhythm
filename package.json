@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "sass": "node-sass --watch --recursive --source-map true --output-style compressed scss/rhythm.scss css/rhythm.min.css",
-    "server": "browser-sync start --server --files 'css/rhythm.min.css, index.html'",
+    "server": "browser-sync start --server --files 'css/rhythm.min.css, index.html, main.css'",
     "start": "parallelshell 'npm run server' 'npm run sass'"
   },
   "author": "Adam Rutter",
