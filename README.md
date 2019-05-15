@@ -92,9 +92,9 @@ $align-to-grid: (
 
 You can install locally, if you want to configure Rhythm further:
 
-* `git clone https://github.com/adamrutter/rhythm.git`
-* `cd rhythm`
-* `npm install`
+1. `git clone https://github.com/adamrutter/rhythm.git`
+2. `cd rhythm`
+3. `npm install`
 
 Three npm scripts are provided:
 
