@@ -42,7 +42,7 @@
   <h3>1. Add breakpoints</h3>
   <p>Add breakpoints as <code>key: value</code> pairs to the <code>$breakpoints</code> map:</p>
   <figure>
-    <pre><code>$breakpoints: (
+    <pre class="prettyprint"><code>$breakpoints: (
   'default': 0,
   'tablet': 450px,
   'desktop': 700px,
@@ -53,7 +53,7 @@
   <h4><code>$base-size</code></h4>
   <p>Sets the base font size for the breakpoint. Used for body type, and to calculate all other sizes.</p>
   <figure>
-    <pre><code>$base-size: (
+    <pre class="prettyprint"><code>$base-size: (
   'default': 20px,
   'tablet': 18px,
   'desktop': 16px,
@@ -62,7 +62,7 @@
   <h4><code>$base-line-height</code></h4>
   <p>The line height for all elements. Used to calculate some other things, too.</p>
   <figure>
-    <pre><code>$base-line-height: (
+    <pre class="prettyprint"><code>$base-line-height: (
   'default': 1.3,
   'tablet': 1.4,
   'desktop': 1.5,
@@ -71,7 +71,7 @@
   <h4><code>$scale-ratio</code></h4>
   <p>The ratio by which to scale font sizes, used exclusively for headings.</p>
   <figure>
-    <pre><code>$scale-ratio: (
+    <pre class="prettyprint"><code>$scale-ratio: (
   'default': 1.2,
   'tablet': 1.2,
   'desktop': 1.2,
@@ -80,7 +80,7 @@
   <h4><code>$indent-multiplier</code></h4>
   <p>Multiplied by the base font size; to calculate how far elements such as lists and figures should be indented.</p>
   <figure>
-    <pre><code>$indent-multiplier: (
+    <pre class="prettyprint"><code>$indent-multiplier: (
   'default': 1.5,
   'tablet': 2,
   'desktop': 3,
@@ -89,7 +89,7 @@
   <h4><code>$align-to-grid</code></h4>
   <p>Align elements to the grid exactly, or allow alignment to half lines. Exact is preferable, but can sometimes introduce bad looking small font-size/high line-height combos.</p>
   <figure>
-    <pre><code>$align-to-grid: (
+    <pre class="prettyprint"><code>$align-to-grid: (
   'default': 'half',
   'tablet': 'half',
   'desktop': 'half',
@@ -116,5 +116,6 @@
       Find me on GitHub
     </a>
   </div>
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 </body>
 </html>

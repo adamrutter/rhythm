@@ -52,6 +52,15 @@ h1 {
   justify-content: space-between;
 }
 
+pre.prettyprint {
+  border: none !important;
+  padding: 27px !important;
+}
+
+code span {
+  font-size: inherit;
+}
+
 .center.container {
   align-items: center;
   display: flex;
@@ -100,6 +109,10 @@ h1 {
 }
 
 @media screen and (min-width: 450px) {
+  pre.prettyprint {
+    padding: 26px !important;
+  }
+
   .github.button {
     margin-top: 26px;
     padding: 13px 27px;
@@ -116,6 +129,10 @@ h1 {
 }
 
 @media screen and (min-width: 700px) {
+  pre.prettyprint {
+    padding: 24px !important;
+  }
+
   .github.button {
     margin-top: 24px;
     padding: 12px 27px;
