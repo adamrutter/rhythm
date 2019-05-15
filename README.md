@@ -90,7 +90,7 @@ $align-to-grid: (
 
 ## Functions
 
-To make it easier for you to align elements to the grid in your own stylesheets, Rhythm includes a function that returns the line-height at a given breakpoint. `line-height(desktop)` will return the line height for your named `desktop` breakpoint:
+To make it easier for you to align elements to the grid in your own stylesheets, Rhythm includes a Sass `function` that returns the line-height at a given breakpoint. `line-height(desktop)` will return the line height for your named `desktop` breakpoint:
 
 ``` scss
 .my-element {
