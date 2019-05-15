@@ -95,6 +95,14 @@
   'desktop': 'half',
 );  </code></pre>
   </figure>
+  <h2>Functions</h2>
+  <p>To make it easier for you to align elements to the grid in your own stylesheets, Rhythm includes a function that returns the line-height at a given breakpoint. <code>line-height(desktop)</code> will return the line height for your named <code>desktop</code> breakpoint:</p>
+  <figure>
+    <pre><code class="prettyprint">.my-element {
+   margin: line-height(desktop);
+ }    </code></pre>
+  </figure>
+<p>Combining this with your own media queries makes aligning elements to the grid incredibly easy!</p>
   <h2>Local installation</h2>
   <p>You can install locally, if you want to configure Rhythm further:</p>
   <ol>
