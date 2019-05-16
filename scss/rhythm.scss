@@ -63,7 +63,7 @@ $show-grid: true;
   @if $show-grid {
     body {
       $grid-colour-1: hsla(240, 30, 50, 0.2);
-      $grid-colour-2: hsla(240, 30, 50, 0.15);
+      $grid-colour-2: hsla(240, 30, 50, 0.075);
 
       @if $align-to-grid == 'exact' {
         background-image: linear-gradient(to bottom, $grid-colour-1 1px, transparent 1px);
