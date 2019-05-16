@@ -114,16 +114,29 @@
       </ul>
     </li>
   </ul>
-
-
   <h2>Functions</h2>
-  <p>To make it easier for you to align elements to the grid in your own stylesheets, Rhythm includes a Sass <code>@function</code> that returns the line-height at a given breakpoint. <code>line-height(desktop)</code> will return the line height for your named <code>desktop</code> breakpoint:</p>
-  <figure>
-    <pre class="prettyprint"><code>.my-element {
+  <p>To make it easier for you to align elements to the grid in your own stylesheets, Rhythm includes multiple Sass functions.</p>
+  <ul class="functions">
+    <li>
+      <h3><code>base-size()</code></h3>
+      <p>A function that returns the base-size at a given breakpoint. <code>base-size(tablet)</code> will return the base-size for your named <code>tablet</code> breakpoint.</p>
+      <figure>
+        <pre class="prettyprint"><code>.my-element {
+  font-size: base-size(tablet);
+}       </code></pre>
+      </figure>
+    </li>
+    <li>
+      <h3><code>line-height()</code></h3>
+      <p>A function that returns the line-height at a given breakpoint. <code>line-height(desktop)</code> will return the line height for your named <code>desktop</code> breakpoint.</p>
+      <figure>
+        <pre class="prettyprint"><code>.my-element {
   margin: line-height(desktop);
-}    </code></pre>
-  </figure>
-<p>Combining this with your own media queries makes aligning elements to the grid incredibly easy!</p>
+}       </code></pre>
+      </figure>
+    </li>
+  </ul>
+  <p>Combining these functions with your own media queries makes aligning elements to the grid incredibly easy!</p>
   <h2>Local installation</h2>
   <p>You can install locally, if you want to configure Rhythm further:</p>
   <ol>

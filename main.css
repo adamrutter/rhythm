@@ -130,12 +130,14 @@ footer {
 }
 
 .config-instructions,
-.config-maps {
+.config-maps,
+.functions {
   list-style: none;
   padding: 0;
 }
 
-.config-instructions li {
+.config-instructions li,
+.functions li {
   padding: 0;
 }
 
