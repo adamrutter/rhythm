@@ -150,6 +150,12 @@ $show-grid: true;
       // Headings should have more white space above them than below, remember the Gestalt principle
       // of proximity
       margin: $line-height * 3 0 $line-height * 1 0;
+
+      // Useful if you use code tags within a heading
+      code {
+        font-size: inherit;
+        line-height: inherit;
+      }
     }
   }
 
