@@ -124,6 +124,16 @@ footer {
   margin-top: 27px;
 }
 
+.config-instructions,
+.config-maps {
+  list-style: none;
+  padding: 0;
+}
+
+.config-instructions li {
+  padding: 0;
+}
+
 @media screen and (min-width: 450px) {
   header {
     margin: 78px 0 26px 0;

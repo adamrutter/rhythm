@@ -40,62 +40,82 @@
   <h2>Configuration</h2>
   <p>Configuration is done within <code>scss/rhythm.scss</code>. Maps are used to set your breakpoints, and to configure typography at each named breakpoint.</p>
   <p>To configure Rhythm for your project:</p>
-  <h3>1. Add breakpoints</h3>
-  <p>Add breakpoints as <code>key: value</code> pairs to the <code>$breakpoints</code> map:</p>
-  <figure>
-    <pre class="prettyprint"><code>$breakpoints: (
-  'default': 0,
-  'tablet': 450px,
-  'desktop': 700px,
-);  </code></pre>
-  </figure>
-  <h3>2. Configure breakpoints</h3>
-  <p>Add your breakpoints to the further five configuartion maps (<code>$base-size</code>, <code>$base-line-height</code>, <code>$scale-ratio</code>, <code>$indent-multiplier</code>, and <code>$align-to-grid</code>) and set values for each:</p>
-  <h4><code>$base-size</code></h4>
-  <p>Sets the base font size for the breakpoint. Used for body type, and to calculate all other sizes.</p>
-  <figure>
-    <pre class="prettyprint"><code>$base-size: (
+  <ul class="config-instructions">
+    <li>
+      <h3>1. Add breakpoints</h3>
+      <p>Add breakpoints as <code>key: value</code> pairs to the <code>$breakpoints</code> map:</p>
+      <figure>
+        <pre class="prettyprint"><code>$breakpoints: (
+      'default': 0,
+      'tablet': 450px,
+      'desktop': 700px,
+    );          </code></pre>
+      </figure>
+    </li>
+    <li>
+      <h3>2. Configure breakpoints</h3>
+      <p>Add your breakpoints to the further five configuartion maps (<code>$base-size</code>, <code>$base-line-height</code>, <code>$scale-ratio</code>, <code>$indent-multiplier</code>, and <code>$align-to-grid</code>) and set values for each:</p>
+      <ul class="config-maps">
+        <li>
+          <h4><code>$base-size</code></h4>
+          <p>Sets the base font size for the breakpoint. Used for body type, and to calculate all other sizes.</p>
+          <figure>
+            <pre class="prettyprint"><code>$base-size: (
   'default': 20px,
   'tablet': 18px,
   'desktop': 16px,
-);  </code></pre>
-  </figure>
-  <h4><code>$base-line-height</code></h4>
-  <p>The line height for all elements. Used to calculate some other things, too.</p>
-  <figure>
-    <pre class="prettyprint"><code>$base-line-height: (
+);          </code></pre>
+          </figure>
+        </li>
+        <li>
+          <h4><code>$base-line-height</code></h4>
+          <p>The line height for all elements. Used to calculate some other things, too.</p>
+          <figure>
+            <pre class="prettyprint"><code>$base-line-height: (
   'default': 1.3,
   'tablet': 1.4,
   'desktop': 1.5,
-);  </code></pre>
-  </figure>
-  <h4><code>$scale-ratio</code></h4>
-  <p>The ratio by which to scale font sizes, used exclusively for headings.</p>
-  <figure>
-    <pre class="prettyprint"><code>$scale-ratio: (
+);          </code></pre>
+          </figure>
+        </li>
+        <li>
+          <h4><code>$scale-ratio</code></h4>
+          <p>The ratio by which to scale font sizes, used exclusively for headings.</p>
+          <figure>
+            <pre class="prettyprint"><code>$scale-ratio: (
   'default': 1.2,
   'tablet': 1.2,
   'desktop': 1.2,
-);  </code></pre>
-  </figure>
-  <h4><code>$indent-multiplier</code></h4>
-  <p>Multiplied by the base font size; to calculate how far elements such as lists and figures should be indented.</p>
-  <figure>
-    <pre class="prettyprint"><code>$indent-multiplier: (
+);          </code></pre>
+          </figure>
+        </li>
+        <li>
+          <h4><code>$indent-multiplier</code></h4>
+          <p>Multiplied by the base font size; to calculate how far elements such as lists and figures should be indented.</p>
+          <figure>
+            <pre class="prettyprint"><code>$indent-multiplier: (
   'default': 1.5,
   'tablet': 2,
   'desktop': 3,
-);  </code></pre>
-  </figure>
-  <h4><code>$align-to-grid</code></h4>
-  <p>Align elements to the grid exactly, or allow alignment to half lines. Exact is preferable, but can sometimes introduce bad looking small font-size/high line-height combos.</p>
-  <figure>
-    <pre class="prettyprint"><code>$align-to-grid: (
+);          </code></pre>
+          </figure>
+        </li>
+        <li>
+          <h4><code>$align-to-grid</code></h4>
+          <p>Align elements to the grid exactly, or allow alignment to half lines. Exact is preferable, but can sometimes introduce bad looking small font-size/high line-height combos.</p>
+          <figure>
+            <pre class="prettyprint"><code>$align-to-grid: (
   'default': 'half',
   'tablet': 'half',
   'desktop': 'half',
 );  </code></pre>
-  </figure>
+          </figure>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+
   <h2>Functions</h2>
   <p>To make it easier for you to align elements to the grid in your own stylesheets, Rhythm includes a Sass <code>@function</code> that returns the line-height at a given breakpoint. <code>line-height(desktop)</code> will return the line height for your named <code>desktop</code> breakpoint:</p>
   <figure>
