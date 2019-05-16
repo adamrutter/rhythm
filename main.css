@@ -63,6 +63,7 @@ header h1 {
 
 pre.prettyprint {
   border: none !important;
+  font-size: 15px;
   padding: 27px !important;
 }
 
@@ -124,6 +125,7 @@ footer,
   }
 
   pre.prettyprint {
+    font-size: 14px;
     padding: 26px !important;
   }
 
@@ -148,6 +150,7 @@ footer,
   }
 
   pre.prettyprint {
+    font-size: 14px;
     padding: 24px !important;
   }
 
