@@ -82,9 +82,9 @@ $show-grid: true;
 // Functions
 //
 
-// A function to return the line-height of a given breakpoint, multiplied for the given value
-@function line-height-units($breakpoint, $multiplier) {
-  @return (map-get($base-line-height, $breakpoint) * map-get($base-size, $breakpoint)) * $multiplier;
+// A function to return the line-height of a given breakpoint
+@function line-height($breakpoint) {
+  @return (map-get($base-line-height, $breakpoint) * map-get($base-size, $breakpoint));
 }
 
 // A 'power of' function (multiply a number by itself n amount of times)
