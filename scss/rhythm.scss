@@ -231,9 +231,9 @@ $show-grid: true;
 @each $breakpoint, $width in $breakpoints {
   @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
     @include styling($base-size: map-get($base-size, $breakpoint),
-      $base-line-height: map-get($base-line-height, $breakpoint),
-      $scale-ratio: map-get($scale-ratio, $breakpoint),
-      $indent-multiplier: map-get($indent-multiplier, $breakpoint),
-      $align-to-grid: map-get($align-to-grid, $breakpoint));
+    $base-line-height: map-get($base-line-height, $breakpoint),
+    $scale-ratio: map-get($scale-ratio, $breakpoint),
+    $indent-multiplier: map-get($indent-multiplier, $breakpoint),
+    $align-to-grid: map-get($align-to-grid, $breakpoint));
   }
 }
